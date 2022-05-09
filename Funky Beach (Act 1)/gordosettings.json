@@ -1,0 +1,14 @@
+{
+	"style" : "tree",
+	"title" : "Gordo Settings",
+	"layout": [{
+			"control": "combobox",
+			"name": "ai",
+			"title": "AI: ",
+			"elements": ["Move horizontally, go through walls", "Move vertically, go through walls", 
+			"Move horizontally, collide with walls", "Move vertically, collide with walls", 
+			"Bounce", "Climb Walls"],
+			"value-default": 2
+		}
+	]
+}

@@ -5,3 +5,4 @@ end
 require 'powerdown'
 require 'coyotetime'
 require 'warpTransition'
+require 'extraNPCProperties'

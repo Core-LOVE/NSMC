@@ -2,8 +2,8 @@ HEAD
 TL:"Bullet Heaven";CPID:"SMBX2";
 HEAD_END
 SECTION
-SC:0;L:-200000;R:-178688;T:-200960;B:-200000;MZ:24;MF:"Bullet Heaven/ogg_mushroommountain.ogg";BG:11;
-SC:1;L:-180000;R:-159456;T:-181728;B:-180000;MZ:24;MF:"Bullet Heaven/ogg_mushroommountain.ogg";BG:11;
+SC:0;L:-200000;R:-178688;T:-200960;B:-200000;MZ:24;MF:"Strange Mounts (Act 2)/ogg_mushroommountain.ogg";BG:11;
+SC:1;L:-180000;R:-159456;T:-181728;B:-180000;MZ:24;MF:"Strange Mounts (Act 2)/ogg_mushroommountain.ogg";BG:11;
 SC:2;L:-160000;R:-159200;T:-160600;B:-160000;MZ:0;MF:"";BG:0;
 SC:3;L:-140000;R:-139200;T:-140600;B:-140000;MZ:0;MF:"";BG:0;
 SECTION_END
