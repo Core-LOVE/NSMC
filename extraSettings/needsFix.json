@@ -1,0 +1,11 @@
+{
+  "style": "groupbox",
+  "title": "Message",
+  "layout": [
+    {
+      "control": "multiLineEdit",
+      "title": "Message",
+      "value-default": ""
+    }
+  ]
+}
