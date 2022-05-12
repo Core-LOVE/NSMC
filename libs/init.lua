@@ -6,3 +6,9 @@ require 'powerdown'
 require 'coyotetime'
 require 'warpTransition'
 require 'extraNPCProperties'
+
+-- game
+require 'hud'
+
+-- clases
+_G.CustomBGO = require 'bgo'

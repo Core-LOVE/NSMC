@@ -55,12 +55,14 @@ local function playSfx(v, sfx)
 	SFX.create{
 		sound = sfx,
 		
-		x = v.x + v.width * 0.5,
-		y = v.y + v.height * 0.5,
+		x = v.x,
+		y = v.y,
 		
 		loops = 1,
-		falloffRadius = 512,
-		sourceRadius = 320,
+		falloffRadius = 800,
+		sourceRadius = 800,
+		type = SFX.SOURCE_CIRCLE,
+		fallofType = SFX.FALLOFF_CIRCLE,
 	}
 end
 
@@ -304,8 +306,8 @@ function exclamationBlock.onTickSpawner(v)
 
                         w:translate(w.speedX,w.speedY)
 						
-						w.speedX = w.speedX * 0.25
-						w.speedY = w.speedY * 0.25
+						w.speedX = 0
+						w.speedY = 0
                     else
                         w.speedX,w.speedY = 0,0
                     end
