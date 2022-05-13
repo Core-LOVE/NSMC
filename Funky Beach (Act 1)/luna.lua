@@ -68,10 +68,13 @@ function onTickEnd()
 	local bg = player.sectionObj.background
 	local layer = bg:get("water")
 	
-	layer.uniforms = {
-		time = lunatime.tick() / 4,
-		intensity = 2
-	}
+	layer.uniforms.time = lunatime.tick() / 4
+	layer.uniforms.intensity = 2
+	
+	local layer = bg:get("watersky")
+	
+	layer.uniforms.time = lunatime.tick() / 4
+	layer.uniforms.intensity = 2
 	
 	local layer = bg:get("sun")
 	
@@ -83,7 +86,7 @@ local c = camera
 local buffer = Graphics.CaptureBuffer(800, 600)
 local waveShader = Shader()
 waveShader:compileFromFile(nil, Misc.resolveFile("wave.frag"))
-local priority = -66
+local priority = -91
 
 function onDraw()
 	buffer:captureAt(priority)
@@ -95,7 +98,7 @@ function onDraw()
 			x = v.x,
 			y = v.y,
 			sourceX = v.x - c.x,
-			sourceY = v.y - c.y,
+			sourceY = (v.y - v.height - 20) - c.y,
 			sourceWidth = v.width,
 			sourceHeight = v.height,
 			
@@ -106,7 +109,7 @@ function onDraw()
 			},
 			
 			color = Color.white .. 0.5,
-			priority = -66,
+			priority = priority,
 			sceneCoords = true,
 		}
 	end

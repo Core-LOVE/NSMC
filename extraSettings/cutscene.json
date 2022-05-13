@@ -1,0 +1,12 @@
+{
+  "style": "groupbox",
+  "title": "Cutscene Settings",
+  "layout": [
+		{
+			"control": "file",
+			"name": "file",
+			"title": "Lua File",
+			"value-default": "cutscene/example.lua"
+		}
+  ]
+}

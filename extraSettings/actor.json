@@ -1,0 +1,18 @@
+{
+  "style": "groupbox",
+  "title": "Actor Settings",
+  "layout": [
+        {
+          "control": "lineEdit",
+		  "name": "name",
+          "title": "Name",
+          "value-default": "exampleActor"
+        },
+		{
+			"control": "file",
+			"name": "file",
+			"title": "Lua File",
+			"value-default": ""
+		}	
+  ]
+}

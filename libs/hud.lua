@@ -17,6 +17,86 @@ local starcoin = Graphics.loadImageResolved 'graphics/starcoin.png'
 local hud1 = Graphics.loadImageResolved 'graphics/hud1.png'
 local hud2 = Graphics.loadImageResolved 'graphics/hud2.png'
 local hud3 = Graphics.loadImageResolved 'graphics/hud3.png'
+local hud4 = Graphics.loadImageResolved 'graphics/hud4.png'
+
+local name = Level.filename():gsub('%.(%w+)', '')
+local act = ""
+
+if name:match('Act (%d+)') then
+	act = '(Act ' .. name:match('Act (%d+)') .. ')'
+	name = name:gsub('(%s*)%(Act (%d+)%)', '')
+end
+
+local drawName
+
+do
+	local font =  textplus.loadFont("textplus/font/6.ini")
+	local opacity = 0
+	local state = 0
+	
+	local dx = -80
+	local ac = 4
+	
+	drawName = function()
+		if state == 0 then
+			opacity = opacity + 0.05
+			
+			if opacity > 5 then
+				opacity = 5
+				state = 1
+			end
+		else
+			if opacity < 0 then
+				return
+			end
+			
+			opacity = opacity - 0.1
+		end
+		
+		local y = (offset + hud1.height + hud3.height + 42)
+		
+		Graphics.drawImageWP(hud4, 0, y, opacity, priority)
+		
+		y = y - 4
+		
+		local col = Color.white * opacity
+		
+		textplus.print{
+			text = name,
+			
+			x = offset + dx,
+			y = y,
+			
+			xscale = 2,
+			yscale = 2,
+			
+			color = col,
+			priority = priority,
+			font = font,
+		}
+		
+		textplus.print{
+			text = act,
+			
+			x = offset + (dx * 0.5),
+			y = y + 18,
+			
+			xscale = 3,
+			yscale = 3,
+			
+			color = col,
+			priority = priority,	
+			font = font,
+		}	
+		
+		if ac > 0 then
+			dx = dx + ac
+			ac = ac - 0.1
+		else
+			dx = dx + 0.1
+		end
+	end
+end
 
 local function drawLives()
 	Graphics.drawImageWP(hud1, offset, offset, priority)
@@ -26,7 +106,7 @@ local function drawLives()
 	for i = 0, 2 do
 		local col
 		
-		if i + 1 > p.powerup then
+		if i + 1 > p.powerup or p.deathTimer > 0 then
 			col = Color.gray .. 0.5
 		end
 		
@@ -89,8 +169,8 @@ local function drawCoins()
 	Graphics.drawImageWP(hud3, offset, y, priority)
 	Graphics.drawImageWP(coin, offset + 4, y + 2, priority)
 	
-	local count = mem(0x00B2C5A8, FIELD_WORD)
-	count = string.format("%02d", count)
+	local count = SaveData.coins or mem(0x00B2C5A8, FIELD_WORD)
+	count = string.format("%03d", count)
 	
 	textplus.print{
 		text = count,
@@ -151,11 +231,28 @@ Graphics.overrideHUD(function()
 	drawScore()
 	drawBox()
 	drawCoins()
+	
 	drawStarcoins()
+	drawName()
 end)
+
+function hud.onTickEnd()
+	local coins = mem(0x00B2C5A8, FIELD_WORD)
+	
+	if coins > 0 then
+		SaveData.coins = SaveData.coins + coins
+		mem(0x00B2C5A8, FIELD_WORD, 0)
+		
+		if SaveData.coins > 999 then
+			SaveData.coins = 0
+		end
+	end
+end
 
 function hud.onInitAPI()
 	starcoinAI = require("npcs/ai/starcoin")
+	
+	registerEvent(hud, 'onTickEnd')
 end
 
 return hud

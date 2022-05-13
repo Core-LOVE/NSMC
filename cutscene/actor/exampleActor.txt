@@ -1,0 +1,2 @@
+yFrames=3
+gravity=0.15
