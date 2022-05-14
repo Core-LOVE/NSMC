@@ -1,2 +1,3 @@
 yFrames=3
 gravity=0.15
+shake=0.1

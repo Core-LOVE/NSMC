@@ -24,8 +24,10 @@ npcManager.setNpcSettings{
 	nogravity = true,
 }
 
+local grav = Defines.npc_grav
+	
 function npc.onTickEndNPC(v)
-	if rain.up then
+	if not rain.up then
 		v.speedY = -4
 	else
 		v.speedY = 4

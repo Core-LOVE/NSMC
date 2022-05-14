@@ -11,6 +11,17 @@ npcManager.setNpcSettings{
 
 function npc.onTickNPC(v)
 	local data = v.data
+	
+	if v.despawnTimer <= 0 then 
+		if data.actor then
+			data.actor:delete()
+		end
+		
+		data.init = nil
+		
+		return 
+	end
+	
 	local settings = data._settings
 	
 	if not data.init then

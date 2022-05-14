@@ -84,6 +84,11 @@ function cutscene.run(args)
 end
 
 function cutscene.stop()
+	if cutscene.onStop then
+		cutscene.onStop(cutscene)
+		cutscene.onStop = nil
+	end
+	
 	cutscene.lockMovement = nil
 	cutscene.update = nil
 	
