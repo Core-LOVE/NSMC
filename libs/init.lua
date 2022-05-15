@@ -13,5 +13,13 @@ require 'antizip'
 -- game
 require 'hud'
 
+-- fixes
+require 'fix/itemboxFix'
+
+-- global
+_G.littleDialogue = require 'littleDialogue'
+littleDialogue.loadTranslations()
+littleDialogue.language = 'rus'
+
 -- clases
 _G.CustomBGO = require 'bgo'

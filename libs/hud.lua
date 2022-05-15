@@ -3,7 +3,7 @@ local hud = {}
 local p = player
 
 local priority = 5
-local offset = 24
+local offset = SaveData.hudOffset or 24
 
 local starcoinAI
 local textplus = require 'textplus'
@@ -25,6 +25,10 @@ local act = ""
 if name:match('Act (%d+)') then
 	act = '(Act ' .. name:match('Act (%d+)') .. ')'
 	name = name:gsub('(%s*)%(Act (%d+)%)', '')
+end
+
+function hud.getOffset()
+	return offset
 end
 
 local drawName

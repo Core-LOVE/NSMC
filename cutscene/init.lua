@@ -111,7 +111,7 @@ function cutscene.onInputUpdate()
 end
 
 function cutscene.onDraw()
-	if cutscene.border then end
+	if cutscene.border then
 		local clear = cutscene.border(cutscene.state)
 		if clear then
 			cutscene.state = CUTSCENE_NONE
