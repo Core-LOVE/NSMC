@@ -1,0 +1,4 @@
+lightradius = 64
+lightbrightness = 1
+lightcolor = red
+lightflicker = true
