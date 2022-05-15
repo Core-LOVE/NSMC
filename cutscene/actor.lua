@@ -1,4 +1,5 @@
 local actor = {}
+actor.npcId = 990
 
 local configFileReader = require("configFileReader")
 local tween = require 'libs/tween'
@@ -68,6 +69,16 @@ function actor.new(name, args)
 	setmetatable(v, {__index = actor})
 	table.insert(actor, v)
 	return v
+end
+
+function actor.spawn(name, x, y, args)
+	local n = NPC.spawn(actor.npcId, x, y)
+	
+	n.data.actor = actor.new(name or "exampleToad", table.join({parent = n}, args or {}))
+	n.data.init = true
+	n.friendly = true
+	
+	return n.data.actor, n
 end
 
 function actor:setDirection(dir)

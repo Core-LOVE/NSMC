@@ -110,19 +110,23 @@ function cutscene.onInputUpdate()
 	end
 end
 
-function cutscene.onCameraDraw()
-	if not cutscene.border then return end
+function cutscene.onDraw()
+	if cutscene.border then end
+		local clear = cutscene.border(cutscene.state)
+		if clear then
+			cutscene.state = CUTSCENE_NONE
+			cutscene.border = nil
+		end
+	end
 	
-	local clear = cutscene.border(cutscene.state)
-	if clear then
-		cutscene.state = CUTSCENE_NONE
-		cutscene.border = nil
+	if cutscene.hidePlayer then
+		player:mem(0x142, FIELD_BOOL, true)
 	end
 end
 
 function cutscene.onInitAPI()
 	registerEvent(cutscene, 'onInputUpdate')
-	registerEvent(cutscene, 'onCameraDraw')
+	registerEvent(cutscene, 'onDraw')
 end
 
 return cutscene

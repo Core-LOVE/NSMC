@@ -25,9 +25,8 @@ function npc.onTickNPC(v)
 	local settings = data._settings
 	
 	if not data.init then
-		data.actor = actor.new(settings.name or "exampleToad", {
-			parent = v,
-		})
+		local args = table.join({parent = v}, data.args or {})
+		data.actor = actor.new(settings.name or "exampleToad", args)
 		
 		if settings.file and settings.file ~= "" then
 			

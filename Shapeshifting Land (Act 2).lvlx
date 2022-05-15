@@ -14,7 +14,7 @@ SC:8;L:-40000;R:-39200;T:-40600;B:-40000;MZ:0;MF:"";BG:0;
 SC:17;L:140000;R:140800;T:139400;B:140000;MZ:0;MF:"";BG:0;
 SECTION_END
 STARTPOINT
-ID:1;X:-195692;Y:-200150;D:1;
+ID:1;X:-199916;Y:-200214;D:1;
 STARTPOINT_END
 BLOCK
 ID:10;X:-200096;Y:-200160;W:32;H:32;
@@ -6790,7 +6790,7 @@ ID:996;X:-114944;Y:-120960;W:3456;H:600;LR:"\[SPIN\] Trigger";XTRA:"{\n    \"bou
 ID:995;X:-114944;Y:-120992;W:3456;H:32;LR:"\[SPIN\] Trigger";XTRA:"{\n    \"canBlockLeft\"\: false\,\n    \"canBlockRight\"\: false\n}\n";
 ID:996;X:-115488;Y:-120600;W:3584;H:600;LR:"\[SPIN\]";XTRA:"{\n    \"boundOnTop\"\: true\,\n    \"treatCameraBoundsAsPhysical\"\: true\n}\n";
 ID:995;X:-115488;Y:-120632;W:3584;H:32;LR:"\[SPIN\]";
-ID:996;X:-153120;Y:-160600;W:800;H:600;XTRA:"{\n    \"boundOnLeft\"\: true\,\n    \"boundOnRight\"\: true\,\n    \"boundOnTop\"\: true\n}\n";
+ID:996;X:-153024;Y:-160600;W:640;H:600;XTRA:"{\n    \"boundOnLeft\"\: true\,\n    \"boundOnRight\"\: true\,\n    \"boundOnTop\"\: true\n}\n";
 ID:995;X:-157600;Y:-160600;W:32;H:600;LR:"Cameras2";
 ID:195;X:-136256;Y:-140128;W:64;H:32;
 ID:703;X:-136928;Y:-140256;W:64;H:32;
@@ -9476,7 +9476,7 @@ ID:342;X:-154592;Y:-160232;D:-1;
 ID:342;X:-154400;Y:-160280;D:-1;
 ID:88;X:-154234;Y:-160352;D:-1;
 ID:88;X:-154234;Y:-160320;D:-1;
-ID:88;X:-154234;Y:-160288;D:-1;
+ID:88;X:-154234;Y:-160384;D:-1;
 ID:88;X:-154042;Y:-160352;D:-1;
 ID:88;X:-154042;Y:-160320;D:-1;
 ID:88;X:-154042;Y:-160288;D:-1;
@@ -9505,8 +9505,6 @@ ID:89;X:-149984;Y:-160128;D:-1;NM:1;LR:"Goombas2";
 ID:89;X:-149856;Y:-160128;D:-1;NM:1;LR:"Goombas2";
 ID:753;X:-150016;Y:-160464;D:-1;LR:"Goombas1";
 ID:900;X:-156288;Y:-160256;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"constantRotation\"\: 0\,\n        \"pAim\"\: false\,\n        \"roundDelay\"\: 3\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 315\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
-ID:900;X:-154240;Y:-160512;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"roundDelay\"\: 1.5\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 180\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
-ID:900;X:-154048;Y:-160512;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"roundDelay\"\: 1.5\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 180\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
 ID:900;X:-152704;Y:-160480;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"roundDelay\"\: 2\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 180\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
 ID:618;X:-153728;Y:-160480;D:-1;
 ID:900;X:-149728;Y:-160416;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"constantRotation\"\: 0\,\n        \"pAim\"\: false\,\n        \"roundDelay\"\: 3\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 315\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
@@ -9590,6 +9588,8 @@ ID:762;X:-197200;Y:-200362;D:-1;XTRA:"{\n    \"config\"\: {\n        \"movementS
 ID:177;X:-196944;Y:-200256;D:-1;S1:6;NM:1;
 ID:136;X:-131552;Y:-140384;D:-1;
 ID:900;X:-152544;Y:-160480;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"roundDelay\"\: 2\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 180\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
+ID:900;X:-154240;Y:-160512;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"roundDelay\"\: 2\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 180\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
+ID:900;X:-154048;Y:-160512;D:-1;XTRA:"{\n    \"aOptions\"\: {\n        \"roundDelay\"\: 2\,\n        \"shootDelay\"\: 0.2\,\n        \"shotsPerRound\"\: 3\n    }\,\n    \"bOptions\"\: {\n        \"shootAngle\"\: 180\,\n        \"shootSpeed\"\: 2\n    }\n}\n";
 NPC_END
 DOORS
 IX:-178496;IY:-180480;OX:-139840;OY:-140256;DT:1;ID:4;OD:2;

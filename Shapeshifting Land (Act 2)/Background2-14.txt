@@ -1,3 +1,21 @@
+[Gradient1]
+name="Gradient1"
+depth=0
+alignY=BOTTOM
+img="Gradient.png"
+repeatX=true
+priority=-2
+opacity=0.5
+
+[Gradient2]
+name="Gradient2"
+depth=0
+alignY=BOTTOM
+img="Gradient.png"
+repeatX=true
+priority=-91
+opacity=0.5
+
 [BG1]
 name="BG1"
 depth=20
@@ -49,7 +67,7 @@ speedX=-0.25
 [Ships1]
 name="Ships1"
 depth=60
-priority=-98
+priority=-99
 alignY=TOP
 y = 480
 img="Clouds5.png"

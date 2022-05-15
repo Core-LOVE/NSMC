@@ -40,7 +40,7 @@ function onDraw()
 				height = 32 - (count-128)/4,	
 				
 				rotation = lunatime.tick(),
-				priority = -91,
+				priority = -98,
 				sceneCoords = false,
 			}
 		end
@@ -63,7 +63,7 @@ function onDraw()
                 y = 0,
                 width = 800,
                 height = 600,
-                color = vector((384-(count-192)*2)/(-384),(384-(count-192)*2)/(-384),(384-(count-192)*2)/(-384),-1),
+                color = vector((384-(count-192)*2)/(384),(384-(count-192)*2)/(384),(384-(count-192)*2)/(384),1),
                 priority = 4
             }
         end
@@ -145,7 +145,7 @@ elseif scene == 5 then
 			y = 0,
 			width = 800,
 			height = 600,
-			color = vector((256-(count-128)*2)/(-256),(256-(count-128)*2)/(-256),(256-(count-128)*2)/(-256),-1),
+			color = vector((256-(count-128)*2)/(256),(256-(count-128)*2)/(256),(256-(count-128)*2)/(256),1),
 			priority = 4
 		}
 	end
