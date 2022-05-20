@@ -1,0 +1,6 @@
+[1]
+frames=2
+speedY=0:1
+speedX=0
+gravity=0.3:0.4
+lifetime=36

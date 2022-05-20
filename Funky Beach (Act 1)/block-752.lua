@@ -23,6 +23,7 @@ local exclamationBlockSettings = {
 	
 	frames = 1,
 	framespeed = 8,
+	bumpable = true,
 }
 
 blockManager.setBlockSettings(exclamationBlockSettings)

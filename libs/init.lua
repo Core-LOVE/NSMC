@@ -9,6 +9,7 @@ require 'coyotetime'
 require 'warpTransition'
 require 'extraNPCProperties'
 require 'antizip'
+require 'playerphysicspatch'
 
 -- game
 require 'hud'
@@ -23,3 +24,5 @@ littleDialogue.language = 'rus'
 
 -- clases
 _G.CustomBGO = require 'bgo'
+
+Player.setCostume(CHARACTER_MARIO,"SMW-Mario")

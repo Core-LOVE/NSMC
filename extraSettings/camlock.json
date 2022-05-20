@@ -1,0 +1,15 @@
+{
+  "style": "groupbox",
+  "title": "Camlock Settings",
+  "layout": [
+		{
+			"control": "spinbox",
+			"name": "lerp",
+			"title": "Lerp",
+			"type": "int",
+			"value-default": 1,
+			"value-min": 1,
+			"value-max": 999
+		}
+  ]
+}
