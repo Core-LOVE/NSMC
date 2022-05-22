@@ -5,7 +5,7 @@ local afterimages = {}
 local activeAfterImages = {}
 
 local maskShader = Shader()
-maskShader:compileFromFile(nil,  Misc.resolveFile("afterimages_shader.frag"))
+maskShader:compileFromFile(nil,  Misc.resolveFile("shaders/afterimages_shader.frag"))
 
 --[[
 This library uses only the addAfterImage call and some helpers for npcs and players, and acts much like a glDraw call in every other way.

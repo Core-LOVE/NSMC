@@ -13,6 +13,7 @@ require 'playerphysicspatch'
 
 -- game
 require 'hud'
+require 'mounts'
 
 -- fixes
 require 'fix/itemboxFix'
@@ -21,6 +22,8 @@ require 'fix/itemboxFix'
 _G.littleDialogue = require 'littleDialogue'
 littleDialogue.loadTranslations()
 littleDialogue.language = 'rus'
+littleDialogue.registerStyle("smc", require("style"))
+littleDialogue.defaultStyleName = "smc"
 
 -- clases
 _G.CustomBGO = require 'bgo'

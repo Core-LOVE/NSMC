@@ -387,7 +387,7 @@ do
         littleDialogue.styles[name] = settings
     end
 
-
+	
     function customTags.boxStyle(fmt,out,args)
         if currentlyUpdatingBox == nil or currentlyUpdatingPage == nil then
             Misc.warn("Invalid use of boxStyle tag.")

@@ -82,7 +82,7 @@ function npc.onTickEndNPC(v)
 	end
 	
 	v.ai1 = v.ai1 + (v.speedX * 0.01)
-	v.speedY = math.sin(v.ai1 * 2) * 0.5
+	v.speedY = math.sin(v.ai1 * 2) * 0.5 * -v.direction
 	
 	for _,p in ipairs(Player.getIntersecting(v.x, v.y, v.x + v.width, v.y + v.height)) do
 		p.speedY = -6

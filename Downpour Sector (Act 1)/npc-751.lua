@@ -52,6 +52,8 @@ function npc.onNPCHarm(e, v, r)
 end
 
 function npc.onTickEndNPC(v)
+	if v.despawnTimer <= 0 then return end
+	
 	local data = v.data
 	
 	data.direction = data.direction or v.direction
@@ -73,7 +75,7 @@ function npc.onTickEndNPC(v)
 			v.animationFrame = (v.animationFrame + 1)
 			
 			if data.timer % 20 == 0 then
-				local bubble = NPC.spawn(id + 1, v.x + (v.width * 0.5) - 12, v.y)
+				local bubble = NPC.spawn(id + 1, v.x + (v.width * 0.5) - 16, v.y)
 				bubble.x = bubble.x + (6 * v.direction)
 				bubble.data.speedX = 4 * v.direction
 				bubble.direction = v.direction
@@ -81,12 +83,15 @@ function npc.onTickEndNPC(v)
 		elseif data.timer > ending then
 			data.timer = 0
 			data.state = 0
-			v.direction = -v.direction
-			data.direction = v.direction
+			
+			if not v.dontMove then
+				v.direction = -v.direction
+				data.direction = v.direction
+			end
 		end
 	end
 	
-	if v.direction == -data.direction then
+	if v.direction == -data.direction and not v.dontMove then
 		data.state = 1
 		v.speedX = 0
 		v.direction = -v.direction
