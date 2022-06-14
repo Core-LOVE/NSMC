@@ -1,6 +1,6 @@
 local scene = {}
 scene.lockMovement = true
-scene.borders = true
+scene.borders = false
 
 local actor = require 'cutscene/actor'
 local cam

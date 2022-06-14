@@ -98,7 +98,7 @@ local function allowedBlock(v)
 		v:hit()
 		smash(v)
 	else
-		if cfg.bumpable then
+		if cfg.bumpable and cfg.smashable then
 			v:remove(true)
 		end
 	end
@@ -131,8 +131,9 @@ local function colliderStuff(v, data)
     end
 end
 
-local shootPower = table.map{
-	3, 6, 7
+local shootPower = {
+	[3] = {npc = id + 1, delay = 24},
+	[6] = {npc = id + 2, delay = 48},
 }
 
 mounts.registerMount('reznor', {
@@ -173,13 +174,25 @@ mounts.registerMount('reznor', {
 		
 		if v.keys.run == KEYS_PRESSED and data.canShoot <= 0 and shootPower[v.powerup] then
 			SFX.play(18)
-			data.canShoot = 24
+			data.canShoot = shootPower[v.powerup].delay
 			
 			local x = 32 * v.direction
+			if v.direction == -1 then
+				x = 0
+			end
 			
-			local ball = NPC.spawn(id + 1, (v.x + v.width * .5) - 32 + x, (v.y + v.height) - 42)
+			local ball = NPC.spawn(shootPower[v.powerup].npc, (v.x + v.width * .5) - 32 + x, (v.y + v.height) - 42)
 			ball.direction = v.direction
 			ball.speedX = 5 * v.direction
+			
+			if v.keys.up then
+				ball.speedY = -6
+				ball.speedX = ball.speedX * .5
+			elseif v.keys.down then
+				ball.speedY = 1
+			else
+				ball.speedY = -1
+			end
 			
 			data.frame = 2
 			data.frameTimer = -math.abs(v.speedX)
@@ -229,7 +242,8 @@ mounts.registerMount('reznor', {
 		
 		v.height = (64 + settings.hitboxHeight * .5)
 		v:mem(0x160, FIELD_WORD, 1)
-		
+		v:mem(0x168, FIELD_FLOAT, 0)
+
 		if transition[v.forcedState] then
 			data.height = data.height or v.height
 			

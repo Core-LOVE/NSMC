@@ -8,7 +8,7 @@ local afterimages = require 'libs/afterimages'
 npcManager.setNpcSettings{
 	id = id,
 	
-	frames = 8,
+	frames = 4,
 	framestyle = 0,
 	framespeed=4,
 	
@@ -31,33 +31,22 @@ function npc.onPostNPCKill(v, r)
 end
 
 function npc.onTickEndNPC(v)
-	afterimages.create(v, 9, Color.orange, false, -16)
-	
+	afterimages.create(v, 12, Color.red, false, -16)
 	local collider = Colliders.Box(v.x, v.y, v.width, v.height)
 	
 	for _,n in NPC.iterate() do
 		local cfg = NPC.config[n.id]
 			
-		if n.id ~= v.id and not n.friendly and Colliders.collideNPC(collider, n) and not cfg.iscoin and not cfg.isvine and not cfg.isyoshi then
+		if n ~= v and not n.friendly and Colliders.collideNPC(collider, n) and not cfg.iscoin and not cfg.isvine and not cfg.isyoshi and n:mem(0x156, FIELD_WORD) <= 0 then
 			if not cfg.nofireball then
 				n:harm(3)
+				n:mem(0x156, FIELD_WORD, 8)
 			end
-			
-			return v:kill(3)
 		end
 	end
 	
-	if v.collidesBlockTop or v.collidesBlockLeft or v.collidesBlockRight then
+	if v.collidesBlockTop or v.collidesBlockLeft or v.collidesBlockRight or v.collidesBlockBottom then
 		return v:kill(3)
-	end
-	
-	if v.collidesBlockBottom then
-		v.speedY = -6
-		v.ai1 = v.ai1 + 1
-		
-		if v.ai1 > 2 then
-			return v:kill(3)
-		end
 	end
 end
 
