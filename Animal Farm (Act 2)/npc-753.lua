@@ -1,4 +1,6 @@
 local npcManager = require("npcManager")
+local camlock = require("camlock")
+
 local id = NPC_ID
 
 local npc = {}
@@ -20,6 +22,19 @@ npcManager.setNpcSettings{
 local img
 
 local rad2deg = 180/math.pi
+
+local function routine()
+	Routine.wait(0.5)
+	
+	player:teleport(-179744, -180832)
+	player.forcedState = 0
+	player.forcedTimer = 0
+	player.speedY = 0
+	
+	camlock.onCamUpdateLevel = function()
+	
+	end
+end
 
 function npc.onDrawNPC(v)
 	local data = v.data
@@ -48,6 +63,11 @@ function npc.onDrawNPC(v)
 	if data.scale > 0 then
 		data.scale = data.scale - 0.01
 	else
+		if not data.done then
+			data.done = true
+			Routine.run(routine)
+		end
+		
 		data.scale = 0
 	end
 	

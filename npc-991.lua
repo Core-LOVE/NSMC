@@ -87,6 +87,14 @@ local function smash(v)
 	Defines.earthquake = 8
 end
 
+local allowedMap = table.map{
+	90,
+	4,
+	188,
+	60,
+	226,
+}
+
 local function allowedBlock(v)
 	local cfg = Block.config[v.id]
 	
@@ -98,7 +106,7 @@ local function allowedBlock(v)
 		v:hit()
 		smash(v)
 	else
-		if cfg.bumpable and cfg.smashable then
+		if allowedMap[v.id] then
 			v:remove(true)
 		end
 	end
@@ -155,19 +163,13 @@ mounts.registerMount('reznor', {
 		if v.keys.altJump then
 			local x, y = v.x + (v.width * 0.5) - 36, (v.y + v.height) - 64
 			
-			local collider = Colliders.Box(x, y - v.height, 64, 64)
-			for k,b in Block.iterate() do
-				if Colliders.collide(collider, b) then
-					return
-				end
-			end
-			
 			local n = NPC.spawn(id, x, y)
 			n.direction = v.direction
 			
 			v:mem(0x11C, FIELD_WORD, Defines.jumpheight)
-			v.speedY = -6
-			v.y = n.y - v.height
+			v.speedY = 0
+			v.keys.altJump = false
+			v.y = v.y - 8
 			
 			return mounts.clear(v)
 		end
@@ -240,7 +242,7 @@ mounts.registerMount('reznor', {
 			data.frame = 1
 		end
 		
-		v.height = (64 + settings.hitboxHeight * .5)
+		v.height = (64 + settings.hitboxHeight * .5) - 16
 		v:mem(0x160, FIELD_WORD, 1)
 		v:mem(0x168, FIELD_FLOAT, 0)
 
@@ -317,6 +319,8 @@ mounts.registerMount('reznor', {
 		
 		v:render{
 			x = v.x + ((v.direction == 1 and -x) or x),
+			y = v.y - 16,
+			
 			frame = 24,
 		}
 		
