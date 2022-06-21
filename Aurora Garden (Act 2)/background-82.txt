@@ -1,0 +1,7 @@
+frames=6
+framesped=5
+priority=-85
+grid=8
+lightcolor=red
+lightradius=64
+lightbrightness=1

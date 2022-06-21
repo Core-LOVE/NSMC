@@ -1,0 +1,3 @@
+lightbrightness = 1
+lightcolor = yellow
+lightradius = 64

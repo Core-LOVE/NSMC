@@ -33,7 +33,7 @@ end
 function npc.onTickEndNPC(v)
 	afterimages.create(v, 9, Color.orange, false, -16)
 	
-	local collider = Colliders.Box(v.x, v.y, v.width, v.height)
+	local collider = Colliders.Box(v.x + v.speedX, v.y + v.speedY, v.width, v.height)
 	
 	for _,n in NPC.iterate() do
 		local cfg = NPC.config[n.id]

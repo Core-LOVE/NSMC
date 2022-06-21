@@ -257,39 +257,8 @@ mounts.registerMount('reznor', {
 		end
 		
 		if math.abs(v.speedX) >= 6 then
-			local texture = style.texture
-		
-			local w, h = texture.width, texture.height / (frames + frames)
-			
-			local f = data.frame
-			f = (v.direction == 1 and f + frames) or f
-		
-			local col
-			
 			local time = lunatime.tick() % 12
-			if time >= 4 and time < 8 then
-				col = Color.orange
-			elseif time >= 8 then
-				col = Color.red
-			end
-			
-			afterimages.addAfterImage{
-				x = v.x + (v.width * .5) - (w * .5),
-				y = (v.y + v.height) - h,
-				
-				texture = texture,
-				priority = -26,
-				lifetime = 7.5,
-				
-				width = w,
-				height = h,
-				
-				texOffsetX = 0,
-				texOffsetY = f / frames,
 
-				color = col or Color.purple .. .5,
-			}
-			
 			if v:isOnGround() then
 				local x = 16
 				x = (v.direction == 1 and -x) or x

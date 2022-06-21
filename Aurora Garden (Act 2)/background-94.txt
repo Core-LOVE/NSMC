@@ -1,0 +1,3 @@
+frames=4
+framspeed=8
+priority=-20

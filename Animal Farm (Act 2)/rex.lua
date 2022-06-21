@@ -80,7 +80,7 @@ local settings = {
 		iswalker = true,
 		turnTo = rex.ids.normal,
 		
-		deathEffect = 86,
+		deathEffect = {id = 86, xoffset=1, yoffset=1},
 	},
 	
 	-- [rex.ids.chase_squashed] = {
